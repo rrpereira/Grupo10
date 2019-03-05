@@ -8,7 +8,7 @@
 Não é possível garantir que estamos localizados nos Estados Unidos (EUA), porque este comando não permite especificar os _ORs_ utilizados no protocolo *TOR*, este processo é feito de forma aleatória. 
 No entanto, o protocolo permite que isso aconteça se implementarmos uma aplicação que escolha, de entre os _ORs_ registados no _Directory Server_, um servidor que se encontre nos Estados Unidos como último _OR_.
 
-### Pergunta 1.1
+### Pergunta 1.2
 * Circuito de acesso ao site: https://www.facebookcorewwwi.onion/.
 
 ![Circuito](face.png)
