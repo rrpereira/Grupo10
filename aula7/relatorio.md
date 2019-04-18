@@ -58,4 +58,5 @@ Por isso, uma DPIA é necessária devido ao tipo de dados que vão ser processad
 O DPIA do projeto encontra-se no ficheiro [DPIA.pdf](https://github.com/uminho-miei-engseg-18-19/Grupo10/blob/master/aula7/DPIA.pdf).
 
 ## Pergunta 1.4
+O PIA do projeto encontra-se no ficheiro [PIA.pdf](https://github.com/uminho-miei-engseg-18-19/Grupo10/blob/master/aula7/PIA.pdf).
 
