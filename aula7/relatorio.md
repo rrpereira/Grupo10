@@ -5,13 +5,13 @@ O artigo analisado pode influir no desenvolvimento do *software* pois é necess�
 
 Estas medidas aplicadas, como por exemplo a **pseudonimização** - que é um processo que pode ser utilizado para disfarçar a identidade do titular dos dados mantendo a rastreabilidade dos dados, são feitas de forma a que o tratamento cumpra os requisitos do presente regulamento e proteja os direitos dos titulares dos dados.
 
-Os *softwares* devem estar cientes dos criteŽrios de privacidade de forma a que a aplicação destas medidas têm de ser realizadas pelo responsável pelo tratamento, tanto no momento de definição dos meios de tratamento como no momento do próprio tratamento, este tem de ter em conta as técnicas mais avançadas, os custos da sua aplicação, assim como o contexto e as finalidades do tratamento dos dados.
+Os *softwares* devem estar cientes dos critérios de privacidade de forma a que a aplicação destas medidas têm de ser realizadas pelo responsável pelo tratamento, tanto no momento de definição dos meios de tratamento como no momento do próprio tratamento, este tem de ter em conta as técnicas mais avançadas, os custos da sua aplicação, assim como o contexto e as finalidades do tratamento dos dados.
 
 O desenvolvimento de *software* ainda pode ser condicionado pela necessidade de assegurar que o responsável pelo tratamento aplica medidas técnicas e organizativas para assegurar que, **por defeito**, apenas sejam tratados os dados pessoais que forem necessários para cada finalidade específica.
 Estas medidas asseguram que, **por defeito**, os dados pessoais não sejam disponibilizados sem intervenção humana.
 Isto é uma obrigação à qual o responsável pelo tratamento deve ter muita atenção e deve ser aplicado à quantidade de dados pessoais recolhidos, ao prazo de conservação dos dados e à sua acessibilidade. 
 
-É ainda necessário garantir que, com todas estas medidas aplicadas, o *software* consiga cumprir todas as obrigações definidas nos pontos anteriores. Sendo ainda que este procedimento de certificação aprovado nos termos do artigo 42º. 
+É ainda necessário garantir que, com todas estas medidas aplicadas, o *software* consiga cumprir todas as obrigações definidas nos pontos anteriores. Sendo ainda este procedimento de certificação aprovado nos termos do artigo 42º. 
 
 ## Pergunta 1.2
 #### Boas práticas para proteção de dados por padrão
@@ -47,6 +47,7 @@ Os nove critérios que devem ser considerados para avaliação são:
 
 **2.** 
 O nosso projeto é um site de venda de artigos de vestuário. Assim, o tipo de processamento que será feito é o de dados pessoais dos utilizadores, assim como os seus *usernames* e *passwords*, dados sobre pagamentos de artigos e ainda a recolha de informação preferencial de cada utilizador, para a seleção de artigos semelhantes para cada utilizador e também publicidade.
+
 Por isso, uma DPIA é necessária devido ao tipo de dados que vão ser processados, em que o processamento destes dados satisfazem os critérios:
 -Evaluation or Scoring;
 -Systematic monitoring, pois são recolhidos dados de preferencias dos utilizadores;
@@ -54,7 +55,7 @@ Por isso, uma DPIA é necessária devido ao tipo de dados que vão ser processad
 
 
 **3.**
-O DPIA do projeto encontra-se no ficheiro [DPIA.pdf] .
+O DPIA do projeto encontra-se no ficheiro [DPIA.pdf](https://github.com/uminho-miei-engseg-18-19/Grupo10/blob/master/aula7/DPIA.pdf).
 
 ## Pergunta 1.4
 
