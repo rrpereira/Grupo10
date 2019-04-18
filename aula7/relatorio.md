@@ -23,7 +23,9 @@ A prática mais óbvia no que diz respeito à minimização de dados, é quanto 
 ##### Extensão mínima do processamento dos dados pessoais
 
 O processamento abrange vários tipos possíveis de operações ou conjunto de operações. O requisito de "extensão mínima" não significa reduzir o número de operações, mas minimizar o risco dos direitos e liberdades das pessoas singulares. Por exemplo, o processamento dos dados apenas na memória principal, em vez de em um dispositivo de armazenamento, se fosse necessário para o propósito. 
-Período mínimo de armazenamento dos dados pessoais
+
+##### Período mínimo de armazenamento dos dados pessoais
+
 Para os dados pessoais, o período de armazenamento deve ser minimizado. Às vezes, o armazenamento permanente não é necessário para o propósito. Não abrange apenas as bases de dados, mas também abrange cópias temporárias ou dados pessoais em entradas de log.
 
 ##### Acessibilidade mínima dos dados pessoais
