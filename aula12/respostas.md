@@ -2,25 +2,25 @@
 
 ## 1. Injection
 #### Pergunta 1.1 - String SQL Injection
-![](1.png)
-![](2.png)
+![Imagem 1](1.png)
+![Imagem 2](2.png)
 
 #### Pergunta 1.2 - Numeric SQL Injection
-![](3.png)
-![](4.png)
+![Imagem 3](3.png)
+![Imagem 4](4.png)
 
 #### Pergunta 1.3 - Database Backdoors
-![](5.png)
-![](6.png)
+![Imagem 5](5.png)
+![Imagem 6](6.png)
 
 
 
 ## 2. XSS
 #### Pergunta 2.1 - Reflected XSS
-![](7.png)
+![Imagem 7](7.png)
 
 
 ## 3. Quebra na Autenticação
 ### Pergunta 3.1 - Forgot Password
-![](8.png)
-![](9.png)
+![Imagem 8](8.png)
+![Imagem 9](9.png)
