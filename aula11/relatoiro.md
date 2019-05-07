@@ -55,7 +55,31 @@ Para conseguir a mensagem 'Congratulations, you win!!!', o programa foi testado 
 ![Perg1.5](p15.png)
 
 ### Experiência 1.8
+Inicialmente, compilou-se o programa com a flag *-g* para podermos analisar os endereços das variáveis do programa. De seguida, verificou-se que a função *win* está no endereço 0x555555554740 e converteu-se o endereço da função para ASCII (UUUUGD). De seguida, verificou-se que a variável *fp* é alterada a partir do byte 73. Sendo assim, foi concatenada uma string com 73 bytes e o endereço da função *win* em *little endian* (DGUUUU). O resultado pode ser observado na figura seguinte:
+
+![Exp1.8](e18.png)
 
 ### Experiência 1.9
+
+## 2. Vulnerabilidade de inteiros
+
+### Experiência 2.1
+![Exp2.1](e21.png)
+### Experiência 2.2
+![Exp2.2](e22.png)
+
+Se for necessário inteiros maiores pode-se utilizar a classe *BigInteger*, que permite representar inteiros com precisão arbitrária.
+
+### Experiência 2.3
+![Exp2.3](e23.png)
+
+### Pergunta 2.1
+Ao analisar o código do programa, vemos que os valores de x e y são do tipo *size_t*, ou seja  correspondem a um inteiro unsigned. Logo se for chamada a função com valores de x ou y cujo produto exceda o limite superior deste tipo, pode ocorrer que o valor da multiplicação de x e y seja inferior ao valor real.  
+
+Quando é executado o código, dá segmentation fault porque não é possível alocar a quantidade de memória pretendida.
+
+### Pergunta 2.2
+
+### Experiência 2.4
 
 
