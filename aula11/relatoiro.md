@@ -19,8 +19,7 @@ No caso dos programas em *Java* e *Python*, os programas terminam com uma exceçã
 ### Pergunta 1.1
 Os programas *Java* e *Python* terminam com um erro se introduzir um número de elementos superior ao tamanho com que o array foi inicializado (10).
 
-No caso do programa em *C++*, 
-
+No caso do programa em *C++*, o programa entra em loop quando escrevemos além do limite do array, ou seja vai ser escrito na variável i, e assim continua a ter chegar ao valor introduzido como tamanho do array.
 
 ### Pergunta 1.2
 Nos programas *Java* e *Python*, se o número de valores a guardar no array for igual ou inferior ao tamanho do array, o programa corre sem problemas. Caso se pretenda guardar mais elementos no array do que o tamanho do mesmo, o programa termina com uma exceção.
