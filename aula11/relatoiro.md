@@ -61,6 +61,8 @@ Inicialmente, compilou-se o programa com a flag *-g* para podermos analisar os e
 
 ### Experiência 1.9
 
+![Exp1.9](e19.png)
+
 ## 2. Vulnerabilidade de inteiros
 
 ### Experiência 2.1
@@ -73,13 +75,32 @@ Se for necessário inteiros maiores pode-se utilizar a classe *BigInteger*, que p
 ### Experiência 2.3
 ![Exp2.3](e23.png)
 
+- O valor é truncado para o tamanho da variável de destino, mantendo os bytes menos significativos.
+
+- Verifica se o valor lido se encontra dentro do intervalo de valores suportado pelo tipo onde vai ser armazenado lançando uma exceção caso tal não se verifique.
+
 ### Pergunta 2.1
-Ao analisar o código do programa, vemos que os valores de x e y são do tipo *size_t*, ou seja  correspondem a um inteiro unsigned. Logo se for chamada a função com valores de x ou y cujo produto exceda o limite superior deste tipo, pode ocorrer que o valor da multiplicação de x e y seja inferior ao valor real.  
+![Perg2.1](p21.png)
+
+Ao analisar o código do programa, vemos que os valores de x e y são do tipo *size_t*, ou seja  correspondem a um inteiro unsigned. Logo se for chamada a função com valores de x ou y cujo produto exceda o limite superior deste tipo, pode ocorrer que o valor da multiplicação de x e y seja inferior ao valor real.
 
 Quando é executado o código, dá segmentation fault porque não é possível alocar a quantidade de memória pretendida.
 
 ### Pergunta 2.2
+![Perg2.2](p22.png)
+
+A vulnerabilidade existente deve-se ao facto de não ser verificado o limite inferior da variável *tamanho*.
+
+Se for passado como argumento *tamanho* o valor 0 à função vulnerável, como na variável *size_t* tamanho_real vai ser armazenado o valor tamanho-1, ou seja -1. Mas como a variável não suporta valores negativos vai ser armazenado um valor muito grande, no qual não é possível fazer o malloc.
+
+Sendo assim, quando executamos o programa este dá segmentation fault porque não e possível alocar a quantidade de memória pretendida.
 
 ### Experiência 2.4
+![Exp2.4](e24.png)
 
+A vulnerabilidade existente resulta da conversão de valores de variáveis entre tipos signed (int) e unsigned (size_t). 
+
+Caso se passe no argumento *tamanho* um valor que exceda o limite superior de um int, na instrução tamanho_real = tamanho - 1 a variável *tamanho_real* passa a armazenar uma valor negativo, devido ao cast para um tipo signed. No entanto, quando se passa o *tamanho_real* como argumento da função malloc ele é convertido para *size_t* e passa a representar um valor positivo, superior ao do limite superior do tipo int.
+
+Quando é executado o código, dá segmentation fault porque não é possível alocar a quantidade de memória pretendida.
 
