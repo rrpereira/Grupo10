@@ -9,6 +9,8 @@ No segmento de text, as instruções são as mesmas em todos os programas, logo os 
 
 No segmento de bss, as diferenças entre *size1*, *size2* e *size3* não são as esperdas, pois era de esperar que no *size2* o bss tivesse alocado mais 4 bytes relativamente ao *size1* e no *size3* mais 4 bytes que o bss do *size2*. No entanto, estes factos podem ser otimizações feitas pelo compilador.
 
+![Exp1.1](e11.png)
+
 ### Experiência 1.3
 No caso do programa em *C++*, este entra em loop pois não são verificados os limites do array. Quando o programa escreve fora do limite do array, está a escrever na variável i, fazendo com que esta seja mudada para o valor 7.
 
@@ -17,8 +19,7 @@ No caso dos programas em *Java* e *Python*, os programas terminam com uma exceçã
 ### Pergunta 1.1
 Os programas *Java* e *Python* terminam com um erro se introduzir um número de elementos superior ao tamanho com que o array foi inicializado (10).
 
-No caso do programa em *C++*, 
-
+No caso do programa em *C++*, o programa entra em loop quando escrevemos além do limite do array, ou seja vai ser escrito na variável i, e assim continua a ter chegar ao valor introduzido como tamanho do array.
 
 ### Pergunta 1.2
 Nos programas *Java* e *Python*, se o número de valores a guardar no array for igual ou inferior ao tamanho do array, o programa corre sem problemas. Caso se pretenda guardar mais elementos no array do que o tamanho do mesmo, o programa termina com uma exceção.
@@ -33,4 +34,72 @@ No ficheiro *RootExploit.c* a vulnerabilidade de buffer overflow existe porque a
 
 No ficheiro *0-simple.c* a vulnerabilidade que existe é a mesma que no ficheiro anterior. No entanto para ser explorada é necessário que o input seja maior por uma unidade do que o tamanho do buffer. Isto porque é preciso que seja escrito na atribuição da variável *control*. No entanto, existe casos em que não foi possível conseguir a mensagem "YOU WIN" devido ao alinhamento de memória forçado pelo compilador. 
 
+![Perg1.3](p13.png)
+
+### Experiência 1.5
+Na função segura, o output da função printf é formatado pela string *%s* sendo que qualquer sequência de formatação no input ("%s", "%d", "%i, etc) vai ser lida de forma literal.
+
+Na função vulnerável, a string passada à função *printf* é diretamente aquela que é lida e caso esta contenha alguma sequência de formatação, esta vai ser substituída por um valor indeterminado, como podemos observar na figura seguinte.
+
+![Exp1.5](e5.png)
+
+### Pergunta 1.4
+No programa *ReadOverflow.c* podemos observar que a leitura das strings está protegida por invocações da função *fgets*, o número de bytes no output é apenas limitado pelo número dado como resposta à primeira pergunta do programa. Assim, é possível obter o conteúdo de outras posições da memória. 
+
+![Perg1.4](p14.png)
+
+### Pergunta 1.5
+Para conseguir a mensagem 'Congratulations, you win!!!', o programa foi testado em tentativa erro para determinar quantos bytes tem de ter o input para começar a alterar o valor da variável. De seguida, dado que se pretende obter o valor 0x61626364, ou seja abcd em *ASCII*, temos de inserir uma string qualquer de 78 bytes como input, concatenada com a string dcba, devido à disposição em little-endian. Podemos observar na figura seguinte um exemplo:
+
+![Perg1.5](p15.png)
+
+### Experiência 1.8
+Inicialmente, compilou-se o programa com a flag *-g* para podermos analisar os endereços das variáveis do programa. De seguida, verificou-se que a função *win* está no endereço 0x555555554740 e converteu-se o endereço da função para ASCII (UUUUGD). De seguida, verificou-se que a variável *fp* é alterada a partir do byte 73. Sendo assim, foi concatenada uma string com 73 bytes e o endereço da função *win* em *little endian* (DGUUUU). O resultado pode ser observado na figura seguinte:
+
+![Exp1.8](e18.png)
+
+### Experiência 1.9
+
+![Exp1.9](e19.png)
+
+## 2. Vulnerabilidade de inteiros
+
+### Experiência 2.1
+![Exp2.1](e21.png)
+### Experiência 2.2
+![Exp2.2](e22.png)
+
+Se for necessário inteiros maiores pode-se utilizar a classe *BigInteger*, que permite representar inteiros com precisão arbitrária.
+
+### Experiência 2.3
+![Exp2.3](e23.png)
+
+- O valor é truncado para o tamanho da variável de destino, mantendo os bytes menos significativos.
+
+- Verifica se o valor lido se encontra dentro do intervalo de valores suportado pelo tipo onde vai ser armazenado lançando uma exceção caso tal não se verifique.
+
+### Pergunta 2.1
+![Perg2.1](p21.png)
+
+Ao analisar o código do programa, vemos que os valores de x e y são do tipo *size_t*, ou seja  correspondem a um inteiro unsigned. Logo se for chamada a função com valores de x ou y cujo produto exceda o limite superior deste tipo, pode ocorrer que o valor da multiplicação de x e y seja inferior ao valor real.
+
+Quando é executado o código, dá segmentation fault porque não é possível alocar a quantidade de memória pretendida.
+
+### Pergunta 2.2
+![Perg2.2](p22.png)
+
+A vulnerabilidade existente deve-se ao facto de não ser verificado o limite inferior da variável *tamanho*.
+
+Se for passado como argumento *tamanho* o valor 0 à função vulnerável, como na variável *size_t* tamanho_real vai ser armazenado o valor tamanho-1, ou seja -1. Mas como a variável não suporta valores negativos vai ser armazenado um valor muito grande, no qual não é possível fazer o malloc.
+
+Sendo assim, quando executamos o programa este dá segmentation fault porque não e possível alocar a quantidade de memória pretendida.
+
+### Experiência 2.4
+![Exp2.4](e24.png)
+
+A vulnerabilidade existente resulta da conversão de valores de variáveis entre tipos signed (int) e unsigned (size_t). 
+
+Caso se passe no argumento *tamanho* um valor que exceda o limite superior de um int, na instrução tamanho_real = tamanho - 1 a variável *tamanho_real* passa a armazenar uma valor negativo, devido ao cast para um tipo signed. No entanto, quando se passa o *tamanho_real* como argumento da função malloc ele é convertido para *size_t* e passa a representar um valor positivo, superior ao do limite superior do tipo int.
+
+Quando é executado o código, dá segmentation fault porque não é possível alocar a quantidade de memória pretendida.
 
