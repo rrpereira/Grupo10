@@ -23,7 +23,7 @@ Utilização normal, com a intrudução do UserID 101.
 
 ![](5.png)
 
-Depois de intruduzir o seguinte intput: 101'; UPDATE employee SET salary = '1000000', o salário é alterado.
+Depois de introduzir o seguinte intput: 101'; UPDATE employee SET salary = '1000000', o salário é alterado.
 
 ![](6.png)
 
@@ -31,7 +31,7 @@ Depois de intruduzir o seguinte intput: 101'; UPDATE employee SET salary = '1000
 
 ## 2. XSS
 #### Pergunta 2.1 - Reflected XSS
-Depois de fazer alguns testes e intruduzir varios inputs nos vários campos, detetamos que o campo dos 3 digitos não tem qualquer mecanismo de segurança. Intrudizindo o seguinte script: "<script> alert("SSA!!!")</script>" produz o efeito na imagem seguinte.
+Depois de fazer alguns testes e intruduzir varios inputs nos vários campos, detetamos que o campo dos 3 digitos não tem qualquer mecanismo de segurança. Introduzindo o seguinte script: "<script> alert("SSA!!!")</script>" produz o efeito na imagem seguinte.
 
 ![](7.png)
 
